@@ -1,10 +1,14 @@
-#summary DMX protocol specification
+#summary DMX protocol specification (Quick)
 
 = Introduction =
 
-Hallo
+This document includes all the required skills to sending data to DMX bus devices.
 
 
-= Details =
+= Physical aspects =
+
+== Topologie ==
+
+  * DMX devices are parts of a *bus*.
 
 So so...
