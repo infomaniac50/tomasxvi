@@ -42,7 +42,8 @@ for _what is DMX?_.
   * all receiver are updated by some data contained in a *package*
   * a package contains (max.) 512 channels
   * a channel is represented by *one byte* (0x00..0xFF)
-  * a channel is enclosed in a *frame* looks like <STARTBIT><8 bit of channel data><STOPBIT><STOPBIT>
+  * a channel is enclosed in a *frame* looks like <STARTBIT><8 bit channel data><STOPBIT><STOPBIT>
+  * the channel data in a frame starts with *LSB* and ends with *MSB*
 
 == Structure of package ==
 
