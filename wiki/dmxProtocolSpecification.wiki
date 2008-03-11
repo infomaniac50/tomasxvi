@@ -23,7 +23,10 @@ A *node* is a part of a DMX bus like dimmer or movinglights.
   * based on RS-485
     * http://en.wikipedia.org/wiki/EIA-485
     * http://de.wikipedia.org/wiki/EIA-485
-    
+  * asymmetric and
+  * serial transition
+  * refresh rate: 250kbit/s 
+  * amplitudes: 0V and 5V
 
 
 == Topologie ==
