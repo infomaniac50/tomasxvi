@@ -18,7 +18,7 @@ for _what is DMX?_.
   * asymmetric transition
     * sender and receiver needs the same refresh rate
     * data are enclosed to frames
-  * serial transition
+  * serialised transition
   * amplitudes: 0V and 5V
 
 
