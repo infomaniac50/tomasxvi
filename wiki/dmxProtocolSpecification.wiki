@@ -21,7 +21,8 @@ A *node* is a part of a DMX bus like dimmer or movinglights.
 == Topologie ==
 
   * The connectivity between several nodes is based on a physical *bus topologie*.
-  * The first node on the bus - called *source* - supports data are sending thru the bus. The following nodes - called *receiver* - receives the data and make some action.
+  * The first node on the bus - called *sender* - supports data are sending thru the bus. The following nodes - called *receiver* - receives the data and make some action.
+  * maximum 512 nodes per bus; logical max; exclude sender;
 
 
 So so...
