@@ -14,9 +14,11 @@ for _what is DMX?_.
   * based on RS-485
     * http://en.wikipedia.org/wiki/EIA-485
     * http://de.wikipedia.org/wiki/EIA-485
-  * asymmetric and
-  * serial transition
   * refresh rate: 250 kbit/s 
+  * asymmetric transition
+    * sender and receiver needs the same refresh rate
+    * data are enclosed to frames
+  * serial transition
   * amplitudes: 0V and 5V
 
 
