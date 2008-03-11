@@ -7,7 +7,17 @@ This document includes all the required skills to sending data to DMX bus device
 
 = Definitions =
 
-|| *Entity* || *Description* ||
+== Node ==
+
+A *node* is a part of a DMX bus like dimmer or movinglights.
+
+  * part of a bus
+  * listening bus traffic
+  * has one or more channels
+
+
+== Channel ==
+
 
 = Physical aspects =
 
