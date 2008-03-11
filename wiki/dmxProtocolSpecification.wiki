@@ -16,9 +16,6 @@ A *node* is a part of a DMX bus like dimmer or movinglights.
   * has one or more channels
 
 
-== Channel ==
-
-
 = Physical aspects =
 
 == Topologie ==
