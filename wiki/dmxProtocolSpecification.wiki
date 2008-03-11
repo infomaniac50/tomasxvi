@@ -9,6 +9,6 @@ This document includes all the required skills to sending data to DMX bus device
 
 == Topologie ==
 
-* DMX devices are parts of a *bus*.
+ * DMX devices are parts of a *bus*.
 
 So so...
