@@ -15,7 +15,7 @@ This document includes all the required skills to sending data to DMX bus device
     * http://de.wikipedia.org/wiki/EIA-485
   * asymmetric and
   * serial transition
-  * refresh rate: 250kbit/s 
+  * refresh rate: 250 kbit/s 
   * amplitudes: 0V and 5V
 
 
@@ -32,7 +32,6 @@ This document includes all the required skills to sending data to DMX bus device
 
   * The connectivity between several nodes is based on a physical *bus topologie*.
   * The first node on the bus - called *sender* - supports data are sending thru the bus. The following nodes - called *receiver* - receives the data and make some action.
-  * max. 32 devices per bus, then it is recommended to refresh singal (e.g. Repeater)
 
 
-So so...
+= Protocol ==
