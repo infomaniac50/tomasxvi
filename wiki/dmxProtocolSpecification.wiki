@@ -1,4 +1,4 @@
-#DMX protocol specification
+#summary DMX protocol specification
 
 = Introduction =
 
