@@ -18,11 +18,19 @@ A *node* is a part of a DMX bus like dimmer or movinglights.
 
 = Physical aspects =
 
+== Electrical aspects ==
+
+  * based on RS-485
+    * http://en.wikipedia.org/wiki/EIA-485
+    * http://de.wikipedia.org/wiki/EIA-485
+    
+
+
 == Topologie ==
 
   * The connectivity between several nodes is based on a physical *bus topologie*.
   * The first node on the bus - called *sender* - supports data are sending thru the bus. The following nodes - called *receiver* - receives the data and make some action.
-  * maximum 512 nodes per bus; logical max; exclude sender;
+  * max. 32 devices per bus, then it is recommended to refresh singal (e.g. Repeater)
 
 
 So so...
