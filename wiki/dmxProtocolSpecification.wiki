@@ -5,16 +5,6 @@
 This document includes all the required skills to sending data to DMX bus devices.
 
 
-= Definitions =
-
-== Node ==
-
-A *node* is a part of a DMX bus like dimmer or movinglights.
-
-  * part of a bus
-  * listening bus traffic
-  * has one or more channels
-
 
 = Physical aspects =
 
@@ -27,6 +17,15 @@ A *node* is a part of a DMX bus like dimmer or movinglights.
   * serial transition
   * refresh rate: 250kbit/s 
   * amplitudes: 0V and 5V
+
+
+== Connectivity ==
+
+  * cable: 3-Pin XLR plug (not recommended, but diffused)
+  * pin setup:
+    * 1 = GND
+    * 2 = DMX- (invert)
+    * 3 = DMX+
 
 
 == Topologie ==
