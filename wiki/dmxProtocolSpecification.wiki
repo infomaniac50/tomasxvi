@@ -23,7 +23,7 @@ A *node* is a part of a DMX bus like dimmer or movinglights.
 
 == Topologie ==
 
-  * DMX devices are parts of a *bus*.
-  * 
+The connectivity between several nodes is based on a physical *bus topolegie*.
+
 
 So so...
