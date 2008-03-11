@@ -5,10 +5,15 @@
 This document includes all the required skills to sending data to DMX bus devices.
 
 
+= Definitions =
+
+|| *Entity* || *Description* ||
+
 = Physical aspects =
 
 == Topologie ==
 
- * DMX devices are parts of a *bus*.
+  * DMX devices are parts of a *bus*.
+  * 
 
 So so...
