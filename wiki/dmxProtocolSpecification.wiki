@@ -35,9 +35,9 @@ for _what is DMX?_.
   * The first node on the bus - called *sender* - supports data are sending thru the bus. The following nodes - called *receiver* - receives the data and make some action.
 
 
-= Abstract aspects =
+= Protocol =
 
-== Package ==
+== Abstract ==
 
   * all receiver are updated by some data contained in a *package*
   * a package contains (max.) 512 channels
