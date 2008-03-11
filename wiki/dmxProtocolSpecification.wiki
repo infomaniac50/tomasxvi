@@ -2,9 +2,9 @@
 
 = Introduction =
 
-This document includes all the required skills to sending data to DMX bus devices.
-
-
+This document includes a view of useful things written a short why.
+It isn't the right document to _get started with DMX_ or give a answer
+for _what is DMX?_.
 
 = Physical aspects =
 
@@ -34,4 +34,9 @@ This document includes all the required skills to sending data to DMX bus device
   * The first node on the bus - called *sender* - supports data are sending thru the bus. The following nodes - called *receiver* - receives the data and make some action.
 
 
-= Protocol ==
+= Abstract aspects =
+
+== Package ==
+
+  * all receiver are updated by some data contained in a *package*
+  * a package contains (max.) 512 channels represented by *one byte*
