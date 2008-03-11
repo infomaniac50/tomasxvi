@@ -1,4 +1,5 @@
 #summary DMX protocol specification (Quick)
+#labels Phase-Design
 
 = Introduction =
 
@@ -39,4 +40,6 @@ for _what is DMX?_.
 == Package ==
 
   * all receiver are updated by some data contained in a *package*
-  * a package contains (max.) 512 channels represented by *one byte*
+  * a package contains (max.) 512 channels
+  * a channel is represented by *one byte* (0x00..0xFF)
+  * a package is introduced by *BREAK* with (min.) 22 Bytes
