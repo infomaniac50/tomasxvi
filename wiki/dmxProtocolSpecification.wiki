@@ -3,7 +3,7 @@
 
 = Introduction =
 
-This document includes a view of useful things written a short why.
+This document includes a view of useful things written a short way.
 It isn't the right document to _get started with DMX_ or give a answer
 for _what is DMX?_.
 
