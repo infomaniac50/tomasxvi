@@ -55,3 +55,5 @@ _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8
     * io-register B => *PINB*
     * io-register C => *PINC*
     * io-register D => *PIND*
+
+  * if you check the file {{{m8def.inc}}}, you can see different assignments between PORTx and PINx (e.g. PORTB = $18; PINB = $16)
