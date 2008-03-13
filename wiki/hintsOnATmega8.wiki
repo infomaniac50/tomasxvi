@@ -29,25 +29,25 @@ For example, the expression {{{out DDRB, r16}}} is easier to read than {{{out $1
 _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8 datasheet], page 65._
 
   * the ATmega8 has *three I/O register*
-    * register B
-    * register C
-    * register D
+    * io-register B
+    * io-register C
+    * io-register D
 
   * each register has a size of *one byte* (eight bits)
   * every bit of these registers are physically *pins* _(0V = 0; 5V = 1)_
   * every pin can use either as *input* or *output* pin
   * the _direction_ (in or out) of each pin can specified via the *DDRx* register (Data Direction Register)
   * every I/O register has a data direction register
-    * register B => *DDRB*
-    * register C => *DDRC*
-    * register D => *DDRD*
+    * io-register B => *DDRB*
+    * io-register C => *DDRC*
+    * io-register D => *DDRD*
 
   * if a register an *out register* (means more than one pin is an out pin), you can write whole bytes using the *PORTx* register
-    * register B => *PORTB*
-    * register C => *PORTC*
-    * register D => *PORTD*
+    * io-register B => *PORTB*
+    * io-register C => *PORTC*
+    * io-register D => *PORTD*
 
   * if a register an *in register* (means more than one pin is an in pin), you can read whole bytes using the *PINx* register
-    * register B => *PINB*
-    * register C => *PINC*
-    * register D => *PIND*
+    * io-register B => *PINB*
+    * io-register C => *PINC*
+    * io-register D => *PIND*
