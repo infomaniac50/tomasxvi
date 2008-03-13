@@ -73,5 +73,12 @@ out DDRB, r16
 
 {{{
 ldi r16, 0x00 ; 0x00 means 0b00000000
+out DDRC, r16
+}}}
+
+==== Using the first four pins of ioreg D to read data & the last four pins to write ====
+
+{{{
+ldi r16, 0xF0 ; 0x00 means 0b11110000
 out DDRD, r16
 }}}
