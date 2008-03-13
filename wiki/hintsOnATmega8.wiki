@@ -1,0 +1,19 @@
+#summary Hints on ATmega8 microcontroller
+
+= Introduction =
+
+Here you can find some (quick) informations about programming the microcontroller ATmega8.
+This article based on the (nice and helpful) tutorial at http://www.mikrocontroller.net/articles/AVR-Tutorial:_IO-Grundlagen (german).
+
+If you search a complete datasheet for the ATmega8, you want match here.
+You can find a offical datasheet/specification in the following location: http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf (PDF)
+
+Some
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
