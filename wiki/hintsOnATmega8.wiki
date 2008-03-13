@@ -36,7 +36,11 @@ _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8
   * each register has a size of *one byte* (eight bits)
   * every bit of these registers are physically *pins* _(0V = 0; 5V = 1)_
   * every pin can use either as *input* or *output* pin
+
   * the _direction_ (in or out) of each pin can specified via the *DDRx* register (Data Direction Register)
+    * *0* = read (receive)
+    * *1* = write (send)
+
   * every I/O register has a data direction register
     * io-register B => *DDRB*
     * io-register C => *DDRC*
