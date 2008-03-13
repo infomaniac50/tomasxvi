@@ -16,4 +16,5 @@ Every example start with {{{.include "m8def.inc"}}}.
 This introduction includes the file {{{<AVRStudio-Install-Dir>\AvrAssembler\Appnotes\m8def.inc}}}. It belongs to the basic scope of the installation. You can view this file in a usual text editor.
 It contains some constants for a better understanding the written code.
 For example, the expression {{{out DDRB, r16}}} is easier to read than {{{out $17, r16}}}.
+
 {{{DDRB}}} is defined in {{{m8def.inc}}} as {{{.equ DDRB = $17}}}
