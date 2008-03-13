@@ -20,11 +20,11 @@ For example, the expression {{{out DDRB, r16}}} is easier to read than {{{out $1
 
 {{{DDRB}}} is defined in {{{m8def.inc}}} as {{{.equ DDRB = $17}}}
 
-= About the ATmeag8 =
 
-== I/O-Registers ==
 
-=== General ===
+= I/O-Registers =
+
+== General ==
 
 _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8 datasheet], page 65._
 
@@ -58,11 +58,11 @@ _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8
 
   * if you check the file {{{m8def.inc}}}, you can see different assignments between PORTx and PINx (e.g. PORTB = $18; PINB = $16)
 
-=== Examples ===
+== Examples ==
 
-==== Setting up the I/O ports ====
+=== Setting up the I/O ports ===
 
-===== All ports of ioreg B used to write data =====
+==== All ports of ioreg B used to write data ====
 
 {{{
 ldi r16, 0xFF
