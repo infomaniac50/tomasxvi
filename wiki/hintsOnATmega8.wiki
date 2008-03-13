@@ -1,7 +1,5 @@
 #summary Hints on ATmega8 microcontroller
-#labels Phase-Design
-
-!!! THIS DOCUMENT IS IN STATE *"DRAFT"* !!!
+#labels Phase-Implementation,Draft
 
 = Introduction =
 
