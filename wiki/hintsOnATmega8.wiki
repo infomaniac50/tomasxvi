@@ -65,6 +65,13 @@ _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8
 ==== All ports of ioreg B used to write data ====
 
 {{{
-ldi r16, 0xFF _; 0xFF means 0b11111111_
+ldi r16, 0xFF ; 0xFF means 0b11111111
 out DDRB, r16
+}}}
+
+==== All ports of ioreg C used to read data ====
+
+{{{
+ldi r16, 0x00 ; 0x00 means 0b00000000
+out DDRD, r16
 }}}
