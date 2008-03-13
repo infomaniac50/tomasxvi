@@ -24,12 +24,19 @@ For example, the expression {{{out DDRB, r16}}} is easier to read than {{{out $1
 
 == I/O-Registers ==
 
+=== General ===
+
 _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8 datasheet], page 65._
 
-  * the ATmega8 have *three I/O register*
-    * PORTB
-    * PORTC
-    * PORTD
+  * the ATmega8 has *three I/O register*
+    * register B
+    * register C
+    * register D
   * each register has a size of *one byte* (eight bits)
   * every bit of these registers are physically *pins* _(0V = 0; 5V = 1)_
   * every pin can use either as *input* or *output* pin
+  * the _direction_ (in or out) of each pin can specified via the *DDRx* register (*D*ata *D*irection *R*egister)
+  * every I/O register has a data direction register
+    * register B => *DDRB*
+    * register C => *DDRC*
+    * register D => *DDRB*
