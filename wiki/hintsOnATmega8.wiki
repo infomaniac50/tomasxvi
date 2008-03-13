@@ -24,8 +24,8 @@ For example, the expression {{{out DDRB, r16}}} is easier to read than {{{out $1
 
 == I/O-Registers ==
 
-The ATmega8 have *three I/O registers*:
-
-  * PORTB
-  * PORTC
-  * PORTD
+  * The ATmega8 have *three I/O register*
+    * PORTB
+    * PORTC
+    * PORTD
+  * Every I/O register can use either as *input* or *output* register
