@@ -65,6 +65,6 @@ _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8
 ==== All ports of ioreg B used to write data ====
 
 {{{
-ldi r16, 0xFF
+ldi r16, 0xFF _; 0xFF means 0b11111111_
 out DDRB, r16
 }}}
