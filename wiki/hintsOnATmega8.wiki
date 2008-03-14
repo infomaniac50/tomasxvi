@@ -85,6 +85,8 @@ out DDRD, r16
 
 === Communicate with I/P ports ===
 
+[avrAsm Quick reference about the AVR-Assember]
+
 ==== Write 0x0F (15) to PORTB ====
 
 {{{
