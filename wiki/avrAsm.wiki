@@ -12,8 +12,13 @@ For more details check the [http://www.atmel.com/dyn/resources/prod_documents/do
 
   * if a bit is *cleared*, it means the bit is equal *zero*
   * if a bit is *set*, it means the bit is equal *one*
+
   * *LSB* stands for "least significant bit"
   * *MSB* stands for "most significant bit"
+
+  * bits are counted beginning by 0
+  * bits are readed from right to left (bit7, bit6, bit5, bit4, bit3, bit2, bit1, bit0)
+
   * a *nibble* is a set of four bits (0x0 .. 0xF)
   * the *low nibble* contains the first four bits of a byte (00001111)
   * the *high nibble* contains the last four bits of a byte (11110000)
