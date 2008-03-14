@@ -40,7 +40,12 @@ For more details check the [http://www.atmel.com/dyn/resources/prod_documents/do
 || sbic || {{{sbic port, bit}}} || I/O, flowctrl || =skip if bit is cleared; Skips the following instruction if bit *bit* (0=LSB; 7=MSB) equals 0 in the I/O register *port* || {{{sbic PINB, 0}}} ||
 || sbis || {{{sbis port, bit}}} || I/O, flowctrl || =skip if bit is set; Skipts the following instruction if bit *bit* (0=LSB; 7=MSB) is equals 1 in the I/O register *port* || {{{sbis PINB, 7}}} ||
 || rjmp || {{{rjmp label}}} || flowctrl || =relative jump; Jumps to the label *label*. (Labels are defined with {{{<labelname>:}}}) || {{{rjmp waitfor}}} ||
-|| com || {{{com reg}}} || logical || =complement; Build the complement of the contents in register *reg* and store it to himself. This means to *invert* the bits _(00001111 => 11110000)_. || {{{com r18}}} ||
+|| com || {{{com reg}}} || logical || =complement; Builds the complement of the contents in register *reg* and store it to himself. This means to *invert* the bits _(00001111 => 11110000)_. || {{{com r18}}} ||
+|| and || {{{and reg1, reg2}}} || logical || Performs a logical AND between the registers *reg1* and *reg2* and stores the result in the register *reg1* || {{{and r16, r17}}} ||
+|| andi || {{{andi reg, const}}} || logical || =and immediate; Performs a logical AND between the register *reg* and the value *const* and stores the result in the register *reg* || {{{andi r16, 0b00001111}}} ||
+|| or || {{{or reg1, reg2}}} || logical || Performs a logical OR between the registers *reg1* and *reg2* and stores the result in the register *reg1* || {{{or r16, r17}}} ||
+|| ori || {{{ori reg, const}}} || logical || =or immediate; Performs a logical OR between the register *reg* and the value *const* and stores the result in the register *reg*. This is equal to {{{sbr}}} || {{{ori r16, 0b01101111}}} ||
+
 
 ----
 
