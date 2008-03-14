@@ -5,11 +5,11 @@ For more details check the [http://www.atmel.com/dyn/resources/prod_documents/do
 
 || *Instruction* || *Syntax* || *Category* || *Description* || *Example* ||
 || mov || {{{mov reg_t, reg_s}}} || General || =Move; Copy the contents of register *reg_s* to register *reg_t* || {{{mov r16, r20}}} ||
-|| ldi || {{{ldi reg, const}}} || General || =LoadImmediate; Push the value of *const* into the register *reg*  || {{{ldi r16, 0xFF}}} ||
+|| ldi || {{{ldi reg, const}}} || General || =*L*oa*dI*mmediate; Push the value of *const* into the register *reg*  || {{{ldi r16, 0xFF}}} ||
 || out || {{{out port, reg}}} || I/O || Write data containing in *reg* to ioport *port*|| {{{out PORTB, r16}}} ||
 || in || {{{in reg, port}}} || I/O || Read data from ioport *port* and push it into register *reg*|| {{{in r16, PORTC}}} ||
-|| sbic || {{{sbic port, bit}}} || I/O, flowctrl || =SkipBitIsCleared (skip if bit is cleared); Skips the following instruction if bit *bit* (0=LSB; 7=MSB) equals 0 in the I/O register *port* || {{{sbic PINB, 0}}} ||
-|| sbis || {{{sbis port, bit}}} || I/O, flowctrl || =SkipBitIsSet (skip if bit is set) Skipts the following instruction if bit *bit* (0=LSB; 7=MSB) is equals 1 in the I/O register *port* || {{{sbis PINB, 7}}} ||
+|| sbic || {{{sbic port, bit}}} || I/O, flowctrl || =*S*kip*B*it*I*O*C*leared (skip if bit is cleared); Skips the following instruction if bit *bit* (0=LSB; 7=MSB) equals 0 in the I/O register *port* || {{{sbic PINB, 0}}} ||
+|| sbis || {{{sbis port, bit}}} || I/O, flowctrl || =*S*kip*B*it*I*O*S*et (skip if bit is set) Skipts the following instruction if bit *bit* (0=LSB; 7=MSB) is equals 1 in the I/O register *port* || {{{sbis PINB, 7}}} ||
 
 ----
 
