@@ -11,7 +11,7 @@ You can find a offical datasheet/specification at the following location: http:/
 
 = Before you start reading this article =
 
-All examples described on this quick reference are made with the AVR-Studio in Versio 4.1.3 (http://atmel.com/dyn/products/tools_card.asp?tool_id=2725) and are coded in assembler.
+All examples described on this quick reference are made in the AVR-Studio in Versio 4.1.3 (http://atmel.com/dyn/products/tools_card.asp?tool_id=2725)- coded in assembler.
 
 Every example start with {{{.include "m8def.inc"}}}.
 This introduction includes the file {{{<AVRStudio-Install-Dir>\AvrAssembler\Appnotes\m8def.inc}}}. It belongs to the basic scope of the installation. You can view this file in a usual text editor.
