@@ -46,12 +46,12 @@ _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8
     * io-register C => *DDRC*
     * io-register D => *DDRD*
 
-  * if a register an *out register* (means more than one pin is an out pin), you can write whole bytes using the *PORTx* register
+  * if a register an *out register* (means all pins are "out pins"), you can write whole bytes using the *PORTx* register
     * io-register B => *PORTB*
     * io-register C => *PORTC*
     * io-register D => *PORTD*
 
-  * if a register an *in register* (means more than one pin is an in pin), you can read whole bytes using the *PINx* register
+  * if a register an *in register* (means all pins are "in pins"), you can read whole bytes using the *PINx* register
     * io-register B => *PINB*
     * io-register C => *PINC*
     * io-register D => *PIND*
@@ -81,4 +81,19 @@ out DDRC, r16
 {{{
 ldi r16, 0xF0 ; 0x00 means 0b11110000
 out DDRD, r16
+}}}
+
+=== Communicate with I/P ports ===
+
+==== Write 0x0F (15) to PORTB ====
+
+{{{
+ldi r16, 0x0F ; 0x0F means 0b00001111
+out PORTB, r16
+}}}
+
+==== Read data from PINC ====
+
+{{{
+in r16, PINC
 }}}
