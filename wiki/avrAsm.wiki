@@ -5,7 +5,7 @@ For more details check the [http://www.atmel.com/dyn/resources/prod_documents/do
 
 || *Instruction* || *Syntax* || *Category* || *Description* ||
 || mov || {{{mov reg_t, reg_s}}} || General || =Move; Copy the contents of register *reg_s* to register *reg_t* ||
-|| A Test ||
+|| A Test || || || ||
 || ldi || {{{ldi reg, const}}} || General || =LoadImmediate; Push the value of *const* into the register *reg*  ||
 || out || {{{out port, reg}}} || I/O || Write data containing in *reg* to ioport *port*||
 || in || {{{in reg, port}}} || I/O || Read data from ioport *port* and push it into register *reg*||
