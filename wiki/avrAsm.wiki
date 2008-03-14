@@ -8,12 +8,15 @@ This articel shows a table with some instructions about the AVR Assembler.
 For more details check the [http://www.atmel.com/dyn/resources/prod_documents/doc0856.pdf AVR Assembler Instruction Set]
 
 
-= Terminology/Nomenclature =
-
-== Bits ==
+= Terminology =
 
   * if a bit is *cleared*, it means the bit is equal *zero*
   * if a bit is *set*, it means the bit is equal *one*
+  * *LSB* stands for "least significant bit"
+  * *MSB* stands for "most significant bit"
+  * a *nibble* is a set of four bits (0x0 .. 0xF)
+  * the *low nibble* contains the first four bits of a byte (00001111)
+  * the *high nibble* contains the last four bits of a byte (11110000)
 
 = Quick reference =
 
