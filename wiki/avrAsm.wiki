@@ -10,6 +10,7 @@ For more details check the [http://www.atmel.com/dyn/resources/prod_documents/do
 || in || {{{in reg, port}}} || I/O || Read data from ioport *port* and push it into register *reg*|| {{{in r16, PORTC}}} ||
 || sbic || {{{sbic port, bit}}} || I/O, flowctrl || =SkipBitIfCleared (skip if bit is cleared); Skips the following instruction if bit *bit* (0 = LSB; 7 = MSB) equals 0 in the I/O register *port* || {{{sbic PINB, 0}}} ||
 
+||  || {{{}}} ||  ||  || {{{}}} ||
 ----
 
 _This is just for copy&paste ;-)_
