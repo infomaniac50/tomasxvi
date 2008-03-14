@@ -1,13 +1,16 @@
 #summary Quick reference to AVR-Assembler
 #labels Phase-Implementation,Draft
 
+
+= Introduction =
+
+This articel shows a table with some instructions about the AVR Assembler.
 For more details check the [http://www.atmel.com/dyn/resources/prod_documents/doc0856.pdf AVR Assembler Instruction Set]
 
-= Before you star reading this acrticle =
 
-== Terminology/Nomenclature ==
+= Terminology/Nomenclature =
 
-=== Bits ===
+== Bits ==
 
   * if a bit is *cleared*, it means the bit is equal *zero*
   * if a bit is *set*, it means the bit is equal *one*
