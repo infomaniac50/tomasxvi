@@ -22,7 +22,7 @@ For example, the expression {{{out DDRB, r16}}} is easier to read than {{{out $1
 
 ----
 
-= I/O-Registers =
+= I/O-Register =
 
 == General ==
 
