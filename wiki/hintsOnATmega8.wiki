@@ -60,7 +60,7 @@ _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8
 
 == Examples ==
 
-You can find a quick reference about the AV-Assembler here: [avrAsm Quick reference AVR-Assember]
+You can find a quick reference about the AV-Assembler here: [avrAsm Quick reference AVR Assember]
 
 === Setting up the I/O ports ===
 
