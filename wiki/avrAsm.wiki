@@ -45,6 +45,7 @@ For more details check the [http://www.atmel.com/dyn/resources/prod_documents/do
 || andi || {{{andi reg, const}}} || logical || =and immediate; Performs a logical AND between the register *reg* and the value *const* and stores the result in the register *reg* || {{{andi r16, 0b00001111}}} ||
 || or || {{{or reg1, reg2}}} || logical || Performs a logical OR between the registers *reg1* and *reg2* and stores the result in the register *reg1* || {{{or r16, r17}}} ||
 || ori || {{{ori reg, const}}} || logical || =or immediate; Performs a logical OR between the register *reg* and the value *const* and stores the result in the register *reg*. This is equal to {{{sbr}}} || {{{ori r16, 0b01101111}}} ||
+|| eor || {{{eor reg1, reg2}}} || logical || Performs a logical EXCLUSIVE OR between the registers *reg1* and *reg2* and stores the result in the register *reg1* || {{{eor r16, r17}}} ||
 
 
 ----
