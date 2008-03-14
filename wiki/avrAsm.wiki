@@ -1,0 +1,6 @@
+#summary Quick reference to AVR-Assembler
+#labels Phase-Implementation,Draft
+
+|| *Instruction* || *Syntax* || *Description* ||
+|| out || {{{out port, reg}}} || Write data containing in *reg* to ioport *port*||
+|| in || {{{out reg, port}}} || Read data from ioport *port* and push that in the regsiter *reg*||
