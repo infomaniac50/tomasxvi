@@ -60,6 +60,8 @@ _Based on [http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf ATmega8
 
 == Examples ==
 
+You can find a quick reference about the AV-Assembler here: [avrAsm Quick reference AVR-Assember]
+
 === Setting up the I/O ports ===
 
 ==== All ports of ioreg B used to write data ====
@@ -84,8 +86,6 @@ out DDRD, r16
 }}}
 
 === Communicate with I/P ports ===
-
-[avrAsm Quick reference about the AVR-Assember]
 
 ==== Write 0x0F (15) to PORTB ====
 
