@@ -21,7 +21,7 @@ For more details check the [http://www.atmel.com/dyn/resources/prod_documents/do
 || mov || {{{mov reg_t, reg_s}}} || register || =move; Copy the contents of register *reg_s* to register *reg_t* || {{{mov r16, r20}}} ||
 || ldi || {{{ldi reg, const}}} || register || =load immediate; Push the value of *const* into the register *reg*  || {{{ldi r16, 0xFF}}} ||
 || cbr || {{{cbr reg, mask}}} || register || =clear bits of register; Clears all bits in register *reg* which are set in *mask*. *Note:* There's a difference to *cbi*! || {{{cbr r16, 0b10101010}}} ||
-|| sbi || {{{sbi reg, mask}}} || register || =set bits in registers; Sets all bits in register *reg* which are set in *mask*. This is equal to {{{ori}}}. *Note:* There's a difference to *sbi*! || {{{sbr r16, 0b01010101}}} ||
+|| sbr || {{{sbi reg, mask}}} || register || =set bits in registers; Sets all bits in register *reg* which are set in *mask*. This is equal to {{{ori}}}. *Note:* There's a difference to *sbi*! || {{{sbr r16, 0b01010101}}} ||
 || out || {{{out port, reg}}} || I/O || Write data containing in *reg* to ioport *port*|| {{{out PORTB, r16}}} ||
 || in || {{{in reg, port}}} || I/O || Read data from ioport *port* and push it into register *reg*|| {{{in r16, PORTC}}} ||
 || cbi || {{{cbi port, bit}}} || I/O || =clear bit; Clears the bit *bit* (0=LSB; 7=MSB) in the I/O register *port* || {{{cbi PORTB, 5}}} ||
