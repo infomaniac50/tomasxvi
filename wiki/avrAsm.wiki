@@ -27,6 +27,7 @@ For more details check the [http://www.atmel.com/dyn/resources/prod_documents/do
 || sbic || {{{sbic port, bit}}} || I/O, flowctrl || =skip if bit is cleared; Skips the following instruction if bit *bit* (0=LSB; 7=MSB) equals 0 in the I/O register *port* || {{{sbic PINB, 0}}} ||
 || sbis || {{{sbis port, bit}}} || I/O, flowctrl || =skip if bit is set; Skipts the following instruction if bit *bit* (0=LSB; 7=MSB) is equals 1 in the I/O register *port* || {{{sbis PINB, 7}}} ||
 || com || {{{com reg}}} || logical || =complement; Build the complement of the contents of register *reg* and store it to himself. This means to *invert* the bits _(00001111 => 11110000)_. || {{{com r18}}} ||
+
 ----
 
 _This is just for copy&paste ;-)_
