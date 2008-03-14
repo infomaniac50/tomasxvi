@@ -18,6 +18,7 @@ For more details check the [http://www.atmel.com/dyn/resources/prod_documents/do
 = Quick reference =
 
 || *Instruction* || *Syntax* || *Category* || *Description* || *Example* ||
+|| nop || {{{nop}}} || - || =no operation; Performs a single cycle, there is nothing to do || {{{nop}}} ||
 || mov || {{{mov reg_t, reg_s}}} || register || =move; Copy the contents of register *reg_s* to register *reg_t* || {{{mov r16, r20}}} ||
 || ldi || {{{ldi reg, const}}} || register || =load immediate; Push the value of *const* into the register *reg*  || {{{ldi r16, 0xFF}}} ||
 || cbr || {{{cbr reg, mask}}} || register || =clear bits of register; Clears all bits in register *reg* which are set in *mask*. *Note:* There's a difference to *cbi*! || {{{cbr r16, 0b10101010}}} ||
