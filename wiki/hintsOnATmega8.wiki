@@ -85,7 +85,7 @@ ldi r16, 0xF0 ; 0x00 means 0b11110000
 out DDRD, r16
 }}}
 
-=== Communicate with I/P ports ===
+=== Communicate with I/O ports ===
 
 ==== Write 0x0F (15) to PORTB ====
 
