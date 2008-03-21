@@ -1,5 +1,5 @@
 #summary DMX protocol specification (Quick)
-#labels Phase-Design
+#labels Phase-Design,DMX512,Auroreal
 
 = Introduction =
 
