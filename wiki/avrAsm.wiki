@@ -1,5 +1,5 @@
 #summary Quick reference to AVR-Assembler
-#labels Phase-Implementation,Draft,Auroreal,AVR,Assembler,Microcontroller,Reference
+#labels Phase-Implementation,Draft,Auroreal,AVR,Assembler,Microcontroller,Reference,Programming
 
 
 = Introduction =
