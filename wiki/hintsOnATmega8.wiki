@@ -1,5 +1,5 @@
 #summary Hints on ATmega8 microcontroller
-#labels Phase-Implementation,Draft
+#labels Phase-Implementation,Draft,Auroreal,Microcontroller,AVR,Assembler,Programming
 
 = Introduction =
 
