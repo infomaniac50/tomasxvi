@@ -20,10 +20,11 @@ Install those in that order.
 
 ===Environment Variables:=== 
 
-Alter the ‘path’ Windows-Environment Variable:
-    Control Panel – System – Advanced – Environment Variables;
+Go into Control Panel – System – Advanced – Environment Variables;
+
 Look for the ‘path’ variable in the lower section and click edit. 
-Add the following line in case it’s missing: “C:\...wherever..\WinAVR\bin ; C:\...wherever...\WinAVR\utils\bin ;”
+Add the following line in case it’s missing: 
+“*C:\...wherever..\WinAVR\bin ; C:\...wherever...\WinAVR\utils\bin ;*"
 
 _Notice the semicolons after each argument – important!_
 
