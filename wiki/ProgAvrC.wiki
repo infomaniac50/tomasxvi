@@ -1,0 +1,79 @@
+#summary Programming AVRs using C
+#labels Microcontrollers,C,AVR,C
+
+= Introduction =
+
+This article explains the concepts of programming AVR microprocessors using the C Language. Its intent is not to go in depth regarding the topics covered here; it should moreover be seen as a summarization aided to help the programmer as a quick reference.
+Its content is a work in progress.
+
+C tutorials covering the fundamentals needed can be found here, here or here.
+
+= Contents =
+
+ #1 Simple I/O - DDR,PORT,PIN
+ #2 The UART I/O Interface
+ #3 Interrupts
+ #4 Helpful C concepts
+ #5 Relations to electronics
+
+
+== 1. Simple I/O - DDR,PORT,PIN ==
+
+There are 3 types of registers we need to access the 'hardware' pins on the chip: 
+===DDR, PORT and PIN===
+
+Data Direction Register :
+{{{                                              
+DDRA = 0x00;                                   // all Pins as Input
+DDRx = 0b01111111;                             // all Pins except the 8.(last) as Output
+}}}
+
+PORT Register as *Output*:
+{{{
+PORTA = 0xff;                                  // all pins = 1
+PORTB = 0b01010101;                            // respective pins = 1 or 0
+}}}
+
+PORT Register as *Input*:
+{{{
+PORTA = 0xff;                                  // all pull-up resistors active
+}}}
+
+PIN registers are read only:
+{{{
+uint8_t foo;
+foo = PINB;                                    // saves the state of all B pins in foo
+}}}
+         
+===Useful notations===
+
+The following implementations are equal:
+{{{
+PORTA = 0xC;
+PORTA = 0b00001100;
+PORTA = (1 << 3) | (1 << 4)
+}}}
+
+You could put way more examples here using C bitmanipulations but I'm not fluid in them yet.   (...anyone bored? ;) )
+
+
+===I/O registers and functions===
+
+<Enter content here>
+{{{
+--> <---
+}}}
+
+== 2. The UART I/O Interface ==
+
+To communicate with a Computer or any other serial-port equipped device the UART comes into play.
+
+
+== 3. Interrupts ==
+
+
+== 4. Helpful C concepts ==
+
+
+
+
