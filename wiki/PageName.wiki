@@ -1,4 +1,4 @@
-# Brief tutorial
+#summary Brief tutorial
 
 =Using AVR-Studio with C=
 
@@ -100,6 +100,4 @@ _I'm unsure about the exact terminology in this context - but it should work ;).
    “Unreferenced Instruction ‘jmp’ at ...” and the like
 
 It would be most appreciated if anyone could explain under what circumstances that happens ... but anyway. To get rid of it close AVR Studio, reopen it, select the Project and reselect the uController you wish to use. Problem solved, whyever.
-
-
 
