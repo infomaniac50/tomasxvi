@@ -13,8 +13,9 @@ C tutorials covering the fundamentals needed can be found here, here or here.
  #1 Simple I/O - DDR,PORT,PIN
  #2 The UART I/O Interface
  #3 Interrupts
- #4 Helpful C concepts
- #5 Relations to electronics
+ #4 Timers
+ #5 Helpful C concepts
+ #6 Relations to electronics
 
 
 == 1. Simple I/O - DDR,PORT,PIN ==
@@ -65,7 +66,7 @@ You could put way more examples here using C bitmanipulations but I'm not fluid 
 
 == 2. The UART I/O Interface ==
 
-To communicate with a Computer or any other serial-port equipped device the UART comes into play.
+To communicate with a Computer or any other serial-port equipped device the UART comes into play. The whole process is buffered so you can send and receive a whole byte "at once".
 
 ===Configuration===
 
@@ -148,16 +149,46 @@ void uart_puts (char *s)
 {
     while (*s)
     {   // as long as *s != '\0'
-        uart_putc(*s);
-        s++;
+        uart_putc(*s);                      // send the character
+        s++;                                // advance in the string
     }
 }
 }}}
 
+Should be pretty self-explanatory.
 
 
+=== Receiving Data ===
+
+Receiving data is similiar:
+
+{{{
+uint8_t Usart_Rx(void)
+{
+    while (!(UCSRA & (1<<RXC)))   // warten bis Zeichen verfuegbar
+        ;
+    return UDR;                   // Zeichen aus UDR an Aufrufer zurueckgeben
+}
+}}}
+
+The problem with this loop is that it blocks the program - as long as there is no new data avilable the uC remains idle. This is where Interrupts come into play.
 
 == 3. Interrupts ==
 
+Interrupt Service Routines (*ISR*) can be used to interrupt the program in whatever it is currently doing.
 
-== 4. Helpful C concepts ==
+Events could be:
+ #1 a change of level at an input pin
+ #2 an expired timer
+ #3 a complete UART transmit/receive 
+ #4 a complete measurement of the A/D converter
+
+Interrupts have to be enabled globally and each one can be enabled and disabled locally.  
+
+
+
+== 4. Timers ==
+
+== 5. Helpful C concepts ==
+
+== 6. Relations to electronics ==
