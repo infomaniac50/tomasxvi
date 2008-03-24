@@ -21,7 +21,6 @@ Install those in that order.
 ===Environment Variables:=== 
 
 Go into Control Panel – System – Advanced – Environment Variables;
-
 Look for the ‘path’ variable in the lower section and click edit. 
 Add the following line in case it’s missing:
  
