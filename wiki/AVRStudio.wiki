@@ -3,8 +3,11 @@
 
 =Using AVR-Studio with C=
 
+==1. Introduction==
 
-==1.	Required Components==
+This article explains the configuration and basic use of AVR-Studio in combination with the C programming Language.
+
+==2.	Required Components==
 
  * WinAVR from http://sourceforge.net/project/showfiles.php?group_id=68108&package_id=66543&release_id=563193
 
@@ -13,14 +16,13 @@
 
 Install those in that order. 
 
-==2.	Configuration==
+==3.	Configuration==
 
 ===Environment Variables:=== 
 
 Alter the ‘path’ Windows-Environment Variable:
 Control Panel – System – Advanced – Environment Variables;
 Look for the ‘path’ variable in the lower section and click edit. 
-
 Add the following line in case it’s missing: “C:\...wherever..\WinAVR\bin ; C:\...wherever...\WinAVR\utils\bin ;”
 Notice the semicolons after each argument – important!
 
@@ -32,7 +34,7 @@ Make sure “Use WinAVR” is enabled and the paths look like: “...\WinAVR\bin
 Add –std=gnu99 on the right side – make sure "all files" is selected on the left.
 
 
-==3.	Hello C (… well, kind of)==
+==4.	Hello C (… well, kind of)==
 
 
 Create New Project – AVR GCC – Enter a name for it and a name for the file containing the main function (!) – select AVR Simulator as Debug platform - ATMega8 
@@ -58,7 +60,7 @@ int main(void)
 }
 }}}
 
-==4.	Conventions==
+==5.	Conventions==
 
 ===Variable Types===
 
@@ -96,8 +98,12 @@ uint64_t ullNumber = 1E19;        // unsigned long long integer
 
 _I'm unsure about the exact terminology in this context - but it should work ;)._
 
-==5.	Errors==
+==6.	Errors==
 
    “Unreferenced Instruction ‘jmp’ at ...” and the like
 
 It would be most appreciated if anyone could explain under what circumstances that happens ... but anyway. To get rid of it close AVR Studio, reopen it, select the Project and reselect the uController you wish to use. Problem solved, whyever.
+
+   " 'for' loop initial declaration used outside C99 mode"
+
+Looks like someone skipped a step eh? ;) Means "–std=gnu99" is missing in the project options.
