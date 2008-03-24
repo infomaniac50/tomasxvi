@@ -13,7 +13,6 @@ C tutorials covering the fundamentals needed can be found here, here or here.
  #1 Simple I/O - DDR,PORT,PIN
  #2 The UART I/O Interface
  #3 Interrupts
-
  #4 Helpful C concepts
  #5 Relations to electronics
 
