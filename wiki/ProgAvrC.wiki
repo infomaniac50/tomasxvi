@@ -13,12 +13,12 @@ C tutorials covering the fundamentals needed can be found here, here or here.
  #1 Simple I/O - DDR,PORT,PIN
  #2 The UART I/O Interface
  #3 Interrupts
+
  #4 Helpful C concepts
  #5 Relations to electronics
 
 
 == 1. Simple I/O - DDR,PORT,PIN ==
-
 There are 3 types of registers we need to access the 'hardware' pins on the chip: 
 ===DDR, PORT and PIN===
 
@@ -68,12 +68,38 @@ You could put way more examples here using C bitmanipulations but I'm not fluid 
 
 To communicate with a Computer or any other serial-port equipped device the UART comes into play.
 
+===Configuration===
+
+The UART is configured and accessed by several registers. Their exact allocation and quantity vary from uC to uC; they all behave similarly though.
+
+UART Control Register (*UCR*):
+<excel sheet>
+
+UART Status Register (*USR*):
+<excel sheet>
+
+UART Data Register (*UDR*):
+Used to read/write from/to the Interface.
+Actually two registers with the same name. Depending on the access type (read or write) the correct one is being selected.
+
+UART Baud Rate Register (*UBRR*):
+Stores the Baud-Rate which is being used in the communication.
+Calculated as followed (*!*): 
+UBRR=clock_frequency/(Baud_rate*16)-1
+
+
+Example:
+{{{
+UCSRB |= (1<<TXEN) | (1<<RXEN);                    // Transmitter/Receiver enabled
+}}}
+
+For the exact register names (UCSRB in this case)... look in the datasheet of your uC.
+
+
 
 == 3. Interrupts ==
 
 
 == 4. Helpful C concepts ==
-
-
 
 
