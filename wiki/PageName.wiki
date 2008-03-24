@@ -1,0 +1,105 @@
+# Brief tutorial
+
+=Using AVR-Studio with C=
+
+
+==1.	Required Components==
+
+ * WinAVR from http://sourceforge.net/project/showfiles.php?group_id=68108&package_id=66543&release_id=563193
+
+ * AVR Studio from http://atmel.com/dyn/products/tools_card.asp?tool_id=2725 
+
+
+Install those in that order. 
+
+==2.	Configuration==
+
+===Environment Variables:=== 
+
+Alter the ‘path’ Windows-Environment Variable:
+Control Panel – System – Advanced – Environment Variables;
+Look for the ‘path’ variable in the lower section and click edit. 
+
+Add the following line in case it’s missing: “C:\...wherever..\WinAVR\bin ; C:\...wherever...\WinAVR\utils\bin ;”
+Notice the semicolons after each argument – important!
+
+===AVR Studio:===
+
+Enter the Project Options and open the ‘Custom Options’ Dialog.
+Make sure “Use WinAVR” is enabled and the paths look like: “...\WinAVR\bin\avr-gcc.exe” and “...\WinAVR\utils\bin\make.exe”.
+
+Add –std=gnu99 on the right side – make sure "all files" is selected on the left.
+
+
+==3.	Hello C (… well, kind of)==
+
+
+Create New Project – AVR GCC – Enter a name for it and a name for the file containing the main function (!) – select AVR Simulator as Debug platform - ATMega8 
+
+{{{
+#include <avr/io.h>    
+#include <inttypes.h>
+#include <stdlib.h>
+
+int main(void)
+{
+   DDRB  = 0x00;             			// B Port as Output
+   PORTB = 0x03;             			// Set Output Pins as 00000011
+
+   PORTB |= ((0 << 0) | (1 << 2));              // Change 00000011 to 00000110
+
+   while(1) {                // 
+     /* empty loop*/;  // 
+   }                         // 
+ 
+   /* never exits */
+   return 0;                 // 
+}
+}}}
+
+==4.	Conventions==
+
+===Variable Types===
+
+It became common practice to define the following for data types.
+
+{{{
+// Contents of inttypes.h
+
+//typedef signed char        int8_t;		Reminder: signed for -128 through +127		
+//typedef unsigned char      uint8_t;		          unsigned for 0 through 255
+// 											
+//typedef short              int16_t;
+//typedef unsigned short     uint16_t;
+// 
+//typedef long               int32_t;
+//typedef unsigned long      uint32_t;
+// 
+//typedef long long          int64_t;
+//typedef unsigned long long uint64_t;
+}}}
+
+===Naming Variables===
+
+To make life easier for anyone that works in your project
+it might be wise to use the Hungarian Notation when naming Variables:
+
+{{{
+
+int8_t iNumber = 127;             // signed 8-bit integer (char)
+uint8_t uiNumber = 255;           // unsigned 8-bit integer (unsigned char)
+uint16_t ulNumber = 65535;        // unsigned long integer 
+uint64_t ullNumber = 1E19;        // unsigned long long integer
+
+}}}
+
+_I'm unsure about the exact terminology in this context - but it should work ;)._
+
+==5.	Errors==
+
+   “Unreferenced Instruction ‘jmp’ at ...” and the like
+
+It would be most appreciated if anyone could explain under what circumstances that happens ... but anyway. To get rid of it close AVR Studio, reopen it, select the Project and reselect the uController you wish to use. Problem solved, whyever.
+
+
+
