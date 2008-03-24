@@ -185,6 +185,16 @@ Events could be:
 
 Interrupts have to be enabled globally and each one can be enabled and disabled locally.  
 
+A simple example:
+{{{
+Will add when i find one..... ahem.
+}}}
+
+.
+.
+.
+
+It actually stops being simple here; tough to summarize without experimenting and testing.
 
 
 == 4. Timers ==
