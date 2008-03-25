@@ -217,6 +217,21 @@ It is therefore advisable to leave ISRs as fast as possible.
 
 === Exchanging Data between the ISR and main ===
 
+Variables changed in ISRs have to be *global* and be declared *volatile*. 
+{{{
+...
+volatile uint16_t u16Test;
+
+ISR(USART_TXC_vect)
+{
+  u16Test = 25;
+}
+
+int main()
+{
+  u16Test += 5;
+}
+}}}
 
 == 4. Timers ==
 
