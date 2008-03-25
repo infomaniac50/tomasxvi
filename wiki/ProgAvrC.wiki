@@ -239,7 +239,7 @@ int main()
 
 ===Register Access===
 
-Be careful when accessing registers both in ISRs and in the main program. Changing three bits in the main program are translated to assembler as 3 seperate instructions. If the Interrupt happens while those are being handled, and the Interrupt changes them as well... weird things happen.
+Be careful when accessing registers both in ISRs and in the main program. Changing three bits in the main program are translated 3 seperate instructions in assembler. If the Interrupt happens while those are being handled, and the Interrupt changes them as well... weird things happen.
 
 
 
