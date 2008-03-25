@@ -3,7 +3,7 @@
 
 = Introduction =
 
-This article explains the concepts of programming AVR microprocessors using the C Language. Its intent is not to go in depth regarding the topics covered here; it should moreover be seen as a summarization aided to help the programmer as a quick reference.
+This article explains the concepts of programming AVR microprocessors using the C Language. Its intent is not to go in depth about everything covered;it should moreover be seen as a summarization aided to help the programmer as a quick reference.
 Its content is a work in progress.
 
 C tutorials covering the fundamentals needed can be found here, here or here.
@@ -177,7 +177,7 @@ The problem with this loop is that it blocks the program - as long as there is n
 
 Interrupt Service Routines (*ISR*) can be used to interrupt the program in whatever it is currently doing.
 
-Events could be:
+Interrupting Events could be:
  #1 a change of level at an input pin
  #2 an expired timer
  #3 a complete UART transmit/receive 
