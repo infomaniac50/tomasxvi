@@ -19,6 +19,7 @@ C tutorials covering the fundamentals needed can be found here, here or here.
 
 
 == 1. Simple I/O - DDR,PORT,PIN ==
+
 There are 3 types of registers we need to access the 'hardware' pins on the chip: 
 ===DDR, PORT and PIN===
 
@@ -185,30 +186,32 @@ Interrupting Events could be:
 
 Interrupts have to be enabled globally and each one can be enabled and disabled locally.  
 
-A simple example:
+A simple example (*untested!*):
 {{{
 #include <avr/interrupt.h>
+#include 
 
 int main()
 {
 
-	cli(); 						// disable global interrupts
+	cli(); 				// disable global interrupts
 	while(condition)
 	{
-		do sth very important
+	   do sth very important
 	}
-	sei(); 						// enable global interrupts
+	sei(); 				// enable global interrupts
 
 
 }
 
-ISR(USART_RXC_vect)				// When UART receive is complete
+ISR(USART_RXC_vect)			// When UART receive is complete
 {					
-	....						// ... do something
+	....				// ... do something
 }
 }}}
-
-
+If another Interrupt is triggered while the previous one is still being processed it is being executed after the first one is done. If that Interrupt happens twice it will still only be executed once though because the "Interrupt happened - flag" can only be set once.
+ 
+It is therefore advisable to leave ISRs as fast as possible.  
 
 
 == 4. Timers ==
