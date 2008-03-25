@@ -215,23 +215,33 @@ If another Interrupt is triggered while the previous one is still being processe
  
 It is therefore advisable to leave ISRs as fast as possible.  
 
+===Interrupt vectors===
+
+<excel sheet with the name and description of each>
+
 === Exchanging Data between the ISR and main ===
 
 Variables changed in ISRs have to be *global* and be declared *volatile*. 
 {{{
 ...
-volatile uint16_t u16Test;
-
-ISR(USART_TXC_vect)
-{
-  u16Test = 25;
-}
-
+volatile uint16_t u16Test;             
+                                       // Volatile tells the compiler to handle the
+ISR(USART_TXC_vect)                    // variable in memory only. Optimizations would
+{                                      // otherwise cause the data to be held in CPU
+  u16Test = 25;                        // registers.
+}                                      
+                                       // Which is bad 
 int main()
 {
   u16Test += 5;
 }
 }}}
+
+===Register Access===
+
+Be careful when accessing registers both in ISRs and in the main program. Changing three bits in the main program are translated to assembler as 3 seperate instructions. If the Interrupt happens while those are being handled, and the Interrupt changes them as well... weird things happen.
+
+
 
 == 4. Timers ==
 
