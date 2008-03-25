@@ -187,14 +187,28 @@ Interrupts have to be enabled globally and each one can be enabled and disabled 
 
 A simple example:
 {{{
-Will add when i find one..... ahem.
+#include <avr/interrupt.h>
+
+int main()
+{
+
+	cli(); 						// disable global interrupts
+	while(condition)
+	{
+		do sth very important
+	}
+	sei(); 						// enable global interrupts
+
+
+}
+
+ISR(USART_RXC_vect)				// When UART receive is complete
+{					
+	....						// ... do something
+}
 }}}
 
-.
-.
-.
 
-It actually stops being simple here; tough to summarize without experimenting and testing.
 
 
 == 4. Timers ==
