@@ -3,7 +3,7 @@
 
 = Introduction =
 
-This article explains the concepts of programming AVR microprocessors using the C Language. Its intent is not to go in depth about everything covered;it should moreover be seen as a summarization aided to help the programmer as a quick reference.
+This article explains the concepts of programming AVR microprocessors using the C Language. Its intent is not to go in depth about everything covered;it should moreover be seen as a summarization aided to serve the programmer as a quick reference.
 Its content is a work in progress.
 
 C tutorials covering the fundamentals needed can be found here, here or here.
@@ -176,6 +176,8 @@ The problem with this loop is that it blocks the program - as long as there is n
 
 == 3. Interrupts ==
 
+=== Introduction===
+
 Interrupt Service Routines (*ISR*) can be used to interrupt the program in whatever it is currently doing.
 
 Interrupting Events could be:
@@ -212,6 +214,8 @@ ISR(USART_RXC_vect)			// When UART receive is complete
 If another Interrupt is triggered while the previous one is still being processed it is being executed after the first one is done. If that Interrupt happens twice it will still only be executed once though because the "Interrupt happened - flag" can only be set once.
  
 It is therefore advisable to leave ISRs as fast as possible.  
+
+=== Exchanging Data between the ISR and main ===
 
 
 == 4. Timers ==
