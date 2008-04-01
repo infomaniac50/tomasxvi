@@ -7,7 +7,7 @@ This article takes a look at the electrotechnical side of AVR microcontrollers.
 
 = Wiring Up =
 
-http://tomasxvi.googlecode.com/files/PSupEx1.GIF
+http://tomasxvi.googlecode.com/files/PSupEx1corrected.GIF
 
 *AGND* and *AVCC* is the Power Supply of the internal A/D Converter. Gets supplied even if its not being used.
 
