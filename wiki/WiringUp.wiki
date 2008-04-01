@@ -2,12 +2,11 @@
 
 = Introduction =
 
-Add your content here.
+This article takes a look at the electrotechnical side of AVR microcontrollers.
 
 
-= Details =
+= Wiring Up =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Power supply ==
+
+http://tomasxvi.googlecode.com/files/PSup.GIF
