@@ -10,4 +10,5 @@ This article takes a look at the electrotechnical side of AVR microcontrollers.
 http://tomasxvi.googlecode.com/files/PSupEx1.GIF
 
 *AGND* and *AVCC* is the Power Supply of the internal A/D Converter. Gets supplied even if its not being used.
+
 *PB3 - PB5* is used for programming the chip via a SPI cable.
