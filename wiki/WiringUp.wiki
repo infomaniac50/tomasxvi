@@ -12,3 +12,9 @@ http://tomasxvi.googlecode.com/files/PSupEx1.GIF
 *AGND* and *AVCC* is the Power Supply of the internal A/D Converter. Gets supplied even if its not being used.
 
 *PB3 - PB5* is used for programming the chip via a SPI cable.
+
+=== Notes about Inputs and Outputs ===
+
+*Input Pins* need either 0V (low) or 5V (high,Vcc).
+
+*Output Pins* deliver either 0V or 5V.
