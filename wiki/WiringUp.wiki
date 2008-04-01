@@ -7,16 +7,5 @@ This article takes a look at the electrotechnical side of AVR microcontrollers.
 
 = Wiring Up =
 
-== 5V Power supply ==
+http://tomasxvi.googlecode.com/files/PSupEx1.GIF
 
-http://tomasxvi.googlecode.com/files/PSup.GIF
-
-== Sample Circuit == 
-
-http://tomasxvi.googlecode.com/files/Ex1.GIF
-
-The 
-
-= PIN Configurations =
-
-http://tomasxvi.googlecode.com/files/ExcelTest.GIF
