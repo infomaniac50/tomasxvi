@@ -1,0 +1,100 @@
+# Introduction #
+
+Here you can find some (quick) informations about programming the microcontroller ATmega8.
+This article based on the (nice and helpful) tutorial at http://www.mikrocontroller.net/articles/AVR-Tutorial:_IO-Grundlagen (german).
+
+If you search a complete datasheet for the ATmega8, you wont match here.
+You can find a offical datasheet/specification at the following location: http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf (PDF)
+
+# Before you start reading this article #
+
+All examples described on this quick reference are made in the AVR-Studio in Versio 4.1.3 (http://atmel.com/dyn/products/tools_card.asp?tool_id=2725)- coded in assembler.
+
+Every example start with `.include "m8def.inc"`.
+This introduction includes the file `<AVRStudio-Install-Dir>\AvrAssembler\Appnotes\m8def.inc`. It belongs to the basic scope of the installation. You can view this file in a usual text editor.
+It contains some constants for a better understanding the written code.
+For example, the expression `out DDRB, r16` is easier to read than `out $17, r16`.
+
+`DDRB` is defined in `m8def.inc` as `.equ DDRB = $17`
+
+
+---
+
+
+# I/O-Register #
+
+## General ##
+
+_Based on [ATmega8 datasheet](http://www.atmel.com/dyn/resources/prod_documents/doc2486.pdf), page 65._
+
+  * the ATmega8 has **three I/O register**
+    * io-register B
+    * io-register C
+    * io-register D
+
+  * each register has a size of **one byte** (eight bits)
+  * every bit of these registers are physically **pins** _(0V = 0; 5V = 1)_
+  * every pin can use either as **input** or **output** pin
+
+  * the _direction_ (in or out) of each pin can specified via the **DDRx** register (Data Direction Register)
+    * **0** = read (receive)
+    * **1** = write (send)
+
+  * every I/O register has a data direction register
+    * io-register B => **DDRB**
+    * io-register C => **DDRC**
+    * io-register D => **DDRD**
+
+  * if a register an **out register** (means all pins are "out pins"), you can write whole bytes using the **PORTx** register
+    * io-register B => **PORTB**
+    * io-register C => **PORTC**
+    * io-register D => **PORTD**
+
+  * if a register an **in register** (means all pins are "in pins"), you can read whole bytes using the **PINx** register
+    * io-register B => **PINB**
+    * io-register C => **PINC**
+    * io-register D => **PIND**
+
+  * if you check the file `m8def.inc`, you can see different assignments between PORTx and PINx (e.g. PORTB = $18; PINB = $16)
+
+## Examples ##
+
+You can find a quick reference about the AVR-Assembler here: [Quick reference AVR-Assember](avrAsm.md)
+
+### Setting up the I/O ports ###
+
+#### All ports of ioreg B used to write data ####
+
+```
+ldi r16, 0xFF ; 0xFF means 0b11111111
+out DDRB, r16
+```
+
+#### All ports of ioreg C used to read data ####
+
+```
+ldi r16, 0x00 ; 0x00 means 0b00000000
+out DDRC, r16
+```
+
+#### Using the first four pins of ioreg D to read data & the last four pins to write ####
+
+```
+ldi r16, 0xF0 ; 0x00 means 0b11110000
+out DDRD, r16
+```
+
+### Communicate with I/O ports ###
+
+#### Write 0x0F (15) to PORTB ####
+
+```
+ldi r16, 0x0F ; 0x0F means 0b00001111
+out PORTB, r16
+```
+
+#### Read data from PINC ####
+
+```
+in r16, PINC
+```

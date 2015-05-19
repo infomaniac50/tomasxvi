@@ -1,0 +1,18 @@
+# Introduction #
+
+This article takes a look at the electrotechnical side of AVR microcontrollers.
+
+
+# Wiring Up #
+
+http://tomasxvi.googlecode.com/files/PSupEx1corrected.GIF
+
+**AGND** and **AVCC** is the Power Supply of the internal A/D Converter. Gets supplied even if its not being used.
+
+**PB3 - PB5** is used for programming the chip via a SPI cable.
+
+### Notes about Inputs and Outputs ###
+
+**Input Pins** need either 0V (low) or +5V (high,Vcc). With the pull-up resistor enabled the pin will register as High if it is completely open. This would make the additional connection to +Vcc expendable in the above example.
+
+**Output Pins** deliver either 0V or 5V.

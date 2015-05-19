@@ -1,0 +1,63 @@
+# Introduction #
+
+This document includes a view of useful things written a short way.
+It isn't the right document to _get started with DMX_ or give a answer
+for _what is DMX?_.
+
+# Physical aspects #
+
+## Electrical aspects ##
+
+  * based on RS-485
+    * http://en.wikipedia.org/wiki/EIA-485
+    * http://de.wikipedia.org/wiki/EIA-485
+  * refresh rate: 250 kbit/s
+  * asymmetric transition
+    * sender and receiver needs the same refresh rate
+    * data are enclosed to frames
+  * serialised transition
+  * amplitudes: 0V and 5V
+
+
+## Connectivity ##
+
+  * cable: 3-Pin XLR plug (not recommended, but diffused)
+  * pin setup:
+    * 1 = GND
+    * 2 = DMX- (invert)
+    * 3 = DMX+
+
+
+## Topologie ##
+
+  * The connectivity between several nodes is based on a physical **bus topologie**.
+  * The first node on the bus - called **sender** - supports data are sending thru the bus. The following nodes - called **receiver** - receives the data and make some action.
+
+
+# Protocol #
+
+## Abstract ##
+
+  * all receiver are updated by some data contained in a **package**
+  * a package contains (max.) 512 channels
+  * a channel is represented by **one byte** (0x00..0xFF)
+  * a channel is enclosed in a **frame** looks like 
+
+&lt;STARTBIT&gt;
+
+<8 bit channel data>
+
+&lt;STOPBIT&gt;
+
+
+
+&lt;STOPBIT&gt;
+
+
+  * the channel data in a frame starts with **LSB** and ends with **MSB**
+
+## Structure of package ##
+
+The scheme of a DMX package including 512 channels looks like the following picture:
+
+http://tomasxvi.googlecode.com/files/dmxpackagescheme.PNG

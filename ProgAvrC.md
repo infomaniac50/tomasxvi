@@ -1,0 +1,249 @@
+# Introduction #
+
+This article explains the concepts of programming AVR microprocessors using the C Language. Its intent is not to go in depth about everything covered;it should moreover be seen as a summarization aided to serve the programmer as a quick reference.
+Its content is a work in progress.
+
+C tutorials covering the fundamentals needed can be found here, here or here.
+
+# Contents #
+
+  1. Simple I/O - DDR,PORT,PIN
+  1. The UART I/O Interface
+  1. Interrupts
+  1. Timers
+  1. Helpful C concepts
+  1. Relations to electronics
+
+
+## 1. Simple I/O - DDR,PORT,PIN ##
+
+There are 3 types of registers we need to access the 'hardware' pins on the chip:
+### DDR, PORT and PIN ###
+
+Data Direction Register :
+```
+DDRA = 0x00;                                   // all Pins as Input
+DDRx = 0b01111111;                             // all Pins except the 8.(last) as Output
+```
+
+PORT Register as **Output**:
+```
+PORTA = 0xff;                                  // all pins = 1
+PORTB = 0b01010101;                            // respective pins = 1 or 0
+```
+
+PORT Register as **Input**:
+```
+PORTA = 0xff;                                  // all pull-up resistors active
+```
+
+PIN registers are read only:
+```
+uint8_t foo;
+foo = PINB;                                    // saves the state of all B pins in foo
+```
+
+### Useful notations ###
+
+The following implementations are equal:
+```
+PORTA = 0xC;
+PORTA = 0b00001100;
+PORTA = (1 << 3) | (1 << 4)
+```
+
+You could put way more examples here using C bitmanipulations but I'm not fluid in them yet.   (...anyone bored? ;) )
+
+
+### I/O registers and functions ###
+
+<Enter content here>
+```
+--> <---
+```
+
+## 2. The UART I/O Interface ##
+
+To communicate with a Computer or any other serial-port equipped device the UART comes into play. The whole process is buffered so you can send and receive a whole byte "at once".
+
+### Configuration ###
+
+The UART is configured and accessed by several registers. Their exact allocation and quantity vary from uC to uC; they all behave similarly though.
+
+UART Control Register (**UCR**):
+<excel sheet>
+
+UART Status Register (**USR**):
+<excel sheet>
+
+UART Data Register (**UDR**):
+Used to read/write from/to the Interface.
+Actually two registers with the same name. Depending on the access type (read or write) the correct one is being selected.
+
+UART Baud Rate Register (**UBRR**):
+Stores the Baud-Rate which is being used in the communication.
+Calculated as followed (**!**):
+UBRR=clock\_frequency/(Baud\_rate\*16)-1
+
+
+A clever example UART configuration:
+```
+/* UART-Init beim AT90S2313 */
+ 
+#ifndef F_CPU
+/* In neueren Version der WinAVR/Mfile Makefile-Vorlage kann
+   F_CPU im Makefile definiert werden, eine nochmalige Definition
+   hier wuerde zu einer Compilerwarnung fuehren. Daher "Schutz" durch
+   #ifndef/#endif 
+ 
+   Dieser "Schutz" kann zu Debugsessions führen, wenn AVRStudio 
+   verwendet wird und dort eine andere, nicht zur Hardware passende 
+   Taktrate eingestellt ist: Dann wird die folgende Definition 
+   nicht verwendet, sondern stattdessen der Defaultwert (8 MHz?) 
+   von AVRStudio - daher Ausgabe einer Warnung falls F_CPU
+   noch nicht definiert: */
+#warning "F_CPU war noch nicht definiert, wird nun nachgeholt mit 4000000"
+#define F_CPU 4000000L    // Systemtakt in Hz, das L am Ende ist wichtig, NICHT UL verwenden! 
+#endif
+ 
+#define BAUD 9600L          // Baudrate, das L am Ende ist wichtig, NICHT UL verwenden!
+ 
+// Berechnungen
+#define UBRR_VAL ((F_CPU+BAUD*8)/(BAUD*16)-1)   // clever runden
+#define BAUD_REAL (F_CPU/(16*(UBRR_VAL+1)))     // Reale Baudrate
+#define BAUD_ERROR ((BAUD_REAL*1000)/BAUD-1000) // Fehler in Promille 
+ 
+#if ((BAUD_ERROR>10) || (BAUD_ERROR<-10))
+  #error Systematischer Fehler der Baudrate grösser 1% und damit zu hoch! 
+#endif
+ 
+int main(void)
+{
+    UCSRB |= (1<<TXEN) | (1<<RXEN);            // Transmitter/Receiver enabled
+    UBRR = UBRR_VAL;                           // Set the Baud rate  
+}
+                    
+```
+
+For the exact register and bit names look in the datasheet of your uC.
+
+### Sending Data ###
+
+An example right away:
+```
+
+//Send a character
+int uart_putc(unsigned char c)
+{
+    while(!(USR & (1 << UDRE)))              // wait until sending is possible
+    {
+    }
+    UDR = c;                                 // send the char
+    return 0;
+}
+
+//Send a String
+void uart_puts (char *s)
+{
+    while (*s)
+    {   // as long as *s != '\0'
+        uart_putc(*s);                      // send the character
+        s++;                                // advance in the string
+    }
+}
+```
+
+Should be pretty self-explanatory.
+
+
+### Receiving Data ###
+
+Receiving data is similiar:
+
+```
+uint8_t Usart_Rx(void)
+{
+    while (!(UCSRA & (1<<RXC)))   // warten bis Zeichen verfuegbar
+        ;
+    return UDR;                   // Zeichen aus UDR an Aufrufer zurueckgeben
+}
+```
+
+The problem with this loop is that it blocks the program - as long as there is no new data avilable the uC remains idle. This is where Interrupts come into play.
+
+## 3. Interrupts ##
+
+### Introduction ###
+
+Interrupt Service Routines (**ISR**) can be used to interrupt the program in whatever it is currently doing.
+
+Interrupting Events could be:
+  1. a change of level at an input pin
+  1. an expired timer
+  1. a complete UART transmit/receive
+  1. a complete measurement of the A/D converter
+
+Interrupts have to be enabled globally and each one can be enabled and disabled locally.
+
+A simple example (**untested!**):
+```
+#include <avr/interrupt.h>
+#include 
+
+int main()
+{
+
+	cli(); 				// disable global interrupts
+	while(condition)
+	{
+	   do sth very important
+	}
+	sei(); 				// enable global interrupts
+
+
+}
+
+ISR(USART_RXC_vect)			// When UART receive is complete
+{					
+	....				// ... do something
+}
+```
+If another Interrupt is triggered while the previous one is still being processed it is being executed after the first one is done. If that Interrupt happens twice it will still only be executed once though because the "Interrupt happened - flag" can only be set once.
+
+It is therefore advisable to leave ISRs as fast as possible.
+
+### Interrupt vectors (**Atmega8!!**) ###
+
+http://tomasxvi.googlecode.com/files/IntVects.PNG
+
+Those are some for the Atmega8. More will be added as they are needed.
+
+### Exchanging Data between the ISR and main ###
+
+Variables changed in ISRs have to be **global** and be declared **volatile**.
+```
+...
+volatile uint16_t u16Test;             
+                                       // Volatile tells the compiler to handle the
+ISR(USART_TXC_vect)                    // variable in memory only. Optimizations would
+{                                      // otherwise cause the data to be held in CPU
+  u16Test = 25;                        // registers.
+}                                      
+                                       // Which is bad 
+int main()
+{
+  u16Test += 5;
+}
+```
+
+### Register Access ###
+
+Be careful when accessing registers both in ISRs and in the main program. Changing three bits in the main program are translated 3 seperate instructions in assembler. If the Interrupt happens while those are being handled, and the Interrupt changes them as well... weird things happen.
+
+
+
+## 4. Timers ##
+
+## 5. Helpful C concepts ##
+
+## 6. Relations to electronics ##
